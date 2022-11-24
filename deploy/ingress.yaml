@@ -4,10 +4,8 @@ metadata:
   labels:
     app: nginxhello
   name: single-default-backend-ingress
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
 spec:
-  ingressClassName: nginx
-  defaultBackend:
-    service:
-      name: nginxhello
-      port:
-        number: 80
+  rules:
+    - host: nginxhello.ef2cfa101d3e499e9839.uksouth.aksapp.io # Which host is allowed to enter the cluster
