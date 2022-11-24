@@ -9,3 +9,12 @@ metadata:
 spec:
   rules:
     - host: nginxhello.ef2cfa101d3e499e9839.uksouth.aksapp.io # Which host is allowed to enter the cluster
+      http:
+        paths:
+          - backend: # How the ingress will handle the requests
+              service:
+               name: nginxhello # Which service the request will be forwarded to
+               port:
+                 name: http # Which port in that service
+            path: / # Which path is this rule referring to
+            pathType: Prefix
